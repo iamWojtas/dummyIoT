@@ -24,8 +24,13 @@ request(options, callback);
 function intervalFunc() {
   console.log('Cant stop me now!');
   request(options, callback);
+  
+  var fs = require('fs'); 
+//  var liczba = fs.readFileSync('/media/sf_Shared/plik.txt', 'utf8');
+//  console.log(liczba);
   liczba++;
-  dataString = 'c|['+liczba+',4]';
+  console.log(liczba);
+  dataString = 'c|['+liczba+',0]';
   options = {
     url: 'http://localhost:7896/iot/d?k=4jggokgpepnvsb2uv4s40d59ov&i=camCar001',
     method: 'POST',
@@ -34,4 +39,4 @@ function intervalFunc() {
   };
 }
 
-setInterval(intervalFunc, 1500);
+setInterval(intervalFunc, 1000);
